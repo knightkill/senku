@@ -16,7 +16,8 @@ class MermaidApp:
         """
         Runs the main application logic.
         """
-        st.title("Mermaid Diagram Generator")
+        st.title("Senku - The Diagram Generator")
+        st.markdown('<style>h1 {color: red;}</style>', unsafe_allow_html=True)
 
         if 'task' not in st.session_state:
             st.session_state.task = "Coffee Brewing System"
