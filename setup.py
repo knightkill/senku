@@ -11,10 +11,13 @@ setup(
         'python-dotenv',
         'datasets',
         'huggingface_hub',
+        'fastapi',
+        'uvicorn',
     ],
     entry_points={
         'console_scripts': [
-            'mermaid_app = src.run_app:run'
+            'mermaid_app = src.run_app:run',
+            'mermaid_api = src.run_app:run_fastapi'
         ]
     }
 )
