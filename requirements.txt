@@ -1,6 +1,0 @@
-datasets
-huggingface_hub
-python-dotenv
-streamlit
-langchain
-langchain-openai==0.1.22

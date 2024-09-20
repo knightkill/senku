@@ -1,3 +1,25 @@
 venv/
 .env
-output/
+output/*
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+
+# IDE-specific files (e.g., for VSCode or PyCharm)
+.vscode/
+.idea/
+
+# Streamlit-specific
+.streamlit/
+
+# Logs
+*.log
