@@ -2,12 +2,14 @@ import streamlit as st
 from src.llm_handler import LLMHandler
 from src.mermaid_handler import MermaidHandler
 
+
 # Rest of your app.py code
 
 class MermaidApp:
     """
     Represents the main application for generating Mermaid diagrams from text descriptions.
     """
+
     def __init__(self):
         self.llm_handler = LLMHandler()
         self.mermaid_handler = MermaidHandler()
@@ -52,9 +54,11 @@ class MermaidApp:
                 if image_path:
                     st.image(image_path, caption="Generated Mermaid Diagram")
 
+
 def main():
     app = MermaidApp()
     app.main()
+
 
 if __name__ == "__main__":
     main()

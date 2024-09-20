@@ -8,9 +8,9 @@ class LLMHandler:
     Handles interactions with the language model to generate Mermaid code and prompts.
     """
     def __init__(self):
-        self.llm = ChatOpenAI(model="ft:gpt-4o-mini-2024-07-18:anormaly-labs::9zdIrrcb")
-        self.mini_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-        self.mini_llm.with_structured_output(ProcessPrompt, method="json_mode")
+        self.finetuned_model = ChatOpenAI(model="ft:gpt-4o-mini-2024-07-18:anormaly-labs::9zdIrrcb")
+        self.base_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        self.base_model.with_structured_output(ProcessPrompt, method="json_mode")
 
     def generate_mermaid_code(self, text_section):
         """
@@ -27,7 +27,7 @@ class LLMHandler:
             ("human", "{text_section}"),
         ])
 
-        chain = prompt | self.llm | StrOutputParser()
+        chain = prompt | self.finetuned_model | StrOutputParser()
         mermaid_code = chain.invoke({"text_section": text_section})
         return mermaid_code.strip()
 
@@ -47,6 +47,6 @@ class LLMHandler:
         Task: {task}
         """
 
-        mermaid_code = self.mini_llm.invoke(prompt_template.format(task=task))
+        mermaid_code = self.base_model.invoke(prompt_template.format(task=task))
         print(mermaid_code)
         return mermaid_code.content
