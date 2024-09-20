@@ -38,7 +38,7 @@ class MermaidApp:
         if st.button("Improve Prompt"):
             st.session_state.prompt = self.llm_handler.generate_mermaid_prompt(st.session_state.task)
 
-        text_section = st.text_area("Text Section to Describe", value=st.session_state.prompt, key="prompt")
+        text_section = st.text_area("Text Section to Describe", key="prompt")
 
         if st.button("Generate Mermaid Diagram"):
             with st.spinner("Generating Mermaid code..."):
