@@ -1,0 +1,12 @@
+### Generate Mermaid Diagram
+POST {{host}}/generate_diagram
+Content-Type: application/json
+
+{
+    "text": "Understand LLM Generation"
+}
+
+> {% client.global.set("image_url", response.body.image_path); %}
+
+### Get Generated Image
+GET {{image_url}}

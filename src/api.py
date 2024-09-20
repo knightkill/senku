@@ -30,6 +30,6 @@ async def generate_diagram(request: DiagramRequest):
     image_path = mermaid_handler.convert_mermaid_to_image(mermaid_code)
     if image_path:
         return DiagramResponse(mermaid_code=mermaid_code,
-                               image_path=f"/output/{os.path.basename(os.path.dirname(image_path))}/diagram.png")
+                               image_path=f"http://localhost:8123/output/{os.path.basename(os.path.dirname(image_path))}/diagram.png")
     else:
         return {"error": "Failed to generate diagram"}
